@@ -3,6 +3,11 @@ package insurance;
 public class Policy {
 	private String policy_no;
 
+	public Policy(String policy_no) {
+		super();
+		this.policy_no = policy_no;
+	}
+
 	public String getPolicy_no() {
 		return policy_no;
 	}
@@ -11,10 +16,6 @@ public class Policy {
 		this.policy_no = policy_no;
 	}
 
-	public Policy(String policy_no) {
-		super();
-		this.policy_no = policy_no;
-	}
 
 	@Override
 	public String toString() {
