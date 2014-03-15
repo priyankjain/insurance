@@ -38,8 +38,7 @@ public class Address implements Comparable<Address> {
 	
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", town=" + town + ", postcode="
-				+ postcode + "]";
+		return street+" "+town+" "+postcode;
 	}
 
 	@Override

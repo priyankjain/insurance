@@ -1,5 +1,6 @@
 package insurance;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -16,8 +17,14 @@ public class ClientsDetailsList {
 	}
 	@Override
 	public String toString() {
-		return "ClientDetailsList [clientDetailsList=" + clientDetailsList
-				+ "]";
+		String ret="";
+		for(Iterator<ClientDetails> iterator=this.clientDetailsList.iterator();iterator.hasNext();)
+		{
+			ClientDetails cd = (ClientDetails)iterator.next();
+			ret+=cd.toString();
+			ret+="\n-------------------------------------------------------------------\n";
+		}
+		return ret;
 	}
 	/**
 	* A method to determine whether or not a given person, identified by a
@@ -55,7 +62,7 @@ public class ClientsDetailsList {
 			for(Iterator<ClientDetails> iterator=clientDetailsList.iterator();iterator.hasNext();)
 			{
 				ClientDetails clientDetails=iterator.next();
-				if(clientDetails.getID()==givenID)
+				if(clientDetails.getID().equals(givenID))
 					return clientDetails;
 			}
 			return null;
@@ -85,5 +92,5 @@ public class ClientsDetailsList {
 		}
 		return null;
 	}
-
+	
 }

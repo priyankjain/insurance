@@ -32,8 +32,7 @@ public class Name {
 	}
 	@Override
 	public String toString() {
-		return "Name [title=" + title + ", initials=" + initials + ", surname="
-				+ surname + "]";
+		return title+" "+initials+" "+surname;
 	}
 	
 }

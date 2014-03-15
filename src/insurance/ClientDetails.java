@@ -7,8 +7,8 @@ public class ClientDetails {
 	private PolicyList policyList;
 	@Override
 	public String toString() {
-		return "ClientDetails [ID=" + ID + ", name=" + name.toString() + ", address="
-				+ address.toString() + ", policyList=" + policyList.toString() + "]";
+		return "Client ID: " + ID + "\nClient Name: " + name.toString() + "\nClient Address: "
+				+ address.toString() + "\nPolicyList: \n" + policyList.toString();
 	}
 	public String getID() {
 		return ID;
