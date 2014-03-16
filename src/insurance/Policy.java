@@ -39,7 +39,6 @@ public class Policy {
 		String c="";
 		c+=this.policy_no.charAt(4);
 		int a=Integer.parseInt(c);
-		System.out.println(a);
 		if(a<4 && a>-1)
 		{
 			return policy_type[a];

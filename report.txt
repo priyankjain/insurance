@@ -1,0 +1,39 @@
+- Write one-paragraph executive summary indicating the extent to which you have successfully completed the exercise
+
+	The Name, Address, Policy, PolicyList, ClientDetails, ClientDetailsList, InputData have been implemented as given in the exercise. The InsuranceDemo contains the main method that calls the readFile() method in InputData class. After the file has been read, the data is printed on the console for each client, using the toString() method in ClientDetailsList. This toString() method in turns calls the toString() methods of the other clasess. The main method than calls the static method in the InsuranceDemo class itself, to get details of the client who wishes to take out a new policy and to insert the new policy in the client's policy list. The enterNewPolicy() is used to insert only one policy.
+
+- Describe briefly but clearly and accurately, the design decisions and implementation strategies you have adopted, and testing regime you have followed.
+
+	- The simple classes like Name, Address and Policy contain the private data members, getter and setter members, constructors and toString method. The complex classes like PolicyList, ClientDetails, ClientDetailsList, InputData use Objects of the simple classes. The toString method in the complex classes use the toString method of the simple classes. 
+
+	- To implement the compareTo method, the Address object's private data members are appended with a space between them, for both the Address Object sent as the argument and the Address Object for which the function is called. A string comparision is then done between them.
+
+	- To get the policy type of the policy, the fourth character is extracted from the policy_no data member and then converted to int.
+
+	- To get the year of the issue of the policy, a substring is extracted from the policy_no data member from index 0 to index 4
+
+	- The constructor of IllegalPolicyCodeException simple throws the error message sent to it
+
+	- In the findClient(String lastName, String code) method of ClientsDetailsList class, we iterate through the ClientDetails of ClientsDetailsList using the Iterator class, and check the lastName and postcode of the current ClientDetails against the given ones to return the corresponding client ID. If no such match is found and we have iterated over the entire ClientsDetailsList, we return null
+
+	- In the sameAddressCheck method of ClientsDetailsList class, we iterator through the ClientDetails of ClientDetailsList using the Iterator class, and check the address of the current ClientDetails agains the address of the ClientDetails given in argument using the compareTo method of Address class. If no such clientDetails is found, we return null.
+
+	- In the readFile method of InputData class, we first create a ClientsDetailList object cdl. Then we read data from the input data file line by line using BufferedReader. We parse each line by splitting it using "/" as the seperator. Then, we use this strings to construct the Name, Address and Policy objects. A PolicyList object is created and the policies for each line are added to it using addPolicy method. A new ClientDetails object is created using the constructor, sending client Id, Name, Address and PolicyList as arguments. The clientDetails object is then added to the cdl object using the addClient method.
+
+	- The enterNewPolicy method of InsuranceDemo first asks the user whether the client for which it wants to enter a new policy is an Existing client or not. JOptionPane class' static method showInputDialog is used to take input. If the client is an existing client, the user is given the option to select whether he wants to select the client by Name and PostCode or by Client ID. Subsequents inputs are then taken, the client is then searched in the ClientDetailsList using the getClientDetails() or findClient() method of ClientDetailsList class. The policy number is then taken input from the user, if the policy type already exists for this customer, the old one is first removed using the checkPolicy() method of PolicyList, and then the new policy is inserted using addPolicy() method of PolicyList. If the client is new, take input of client ID, title, initials, surname, street, town, postcode and policy number. Then create respective objects, then create a ClientDetails object using these objects and insert it into the ClientDetailsList using addClient() method.
+
+	- The readFile() method of InputData is tested, so it works well for each line, with variable number of policies each line. Test that program parses each line using the "/" seperator. Test that the program handles end of file and # delimiter gracefully. Test the program handles Incorrect Polciy Codes gracefully.
+
+	- The main() method of InsuranceDemo is tested, so handles non-existence of input FIle gracefully. The toString() method of ClientsDetailList is also called in this function, which in turn calls toString method of other classes, thus they are tested for proper working and enough details. 
+
+	- The enterNewPolicy() method is tested well against user inputs. The option of "Existing Client" is test against both smaller case and upper case letters, and invalid letters (other than Y or N). The policy number input is also tested to check for validity of policy type. The possibility of no client existing with the given Client ID or given surname and postcode is also gaurded against and the user is given the error "No such client found"
+
+
+For each milestone, state to which extent you completed it. State explicitly whether you have attempted it at all, whether your implementation compiles without errors, whether it runs without runtime errors, and whether it produces correct
+results.
+	- The Name, Address, ClientDetails, Policy, PolicyList, ClientsDetailsList classes are implemented with the proper private data members, accessor methods, constructors and toString methods.
+	- compareTo() method has been implemented in Address class.
+	- The IllegalPolicyCodeException class has been implemented
+	- getPolicyType() and getYearOfIssue() methods have been implemented in Policy Class.
+	- findClient(), getClientDetails() and sameAddressCheck() methods are implemented in ClientsDetailsList class.
+	- All classes and methods have been full completed and implemented as stated in the exercises. All the methods and classes were implemented by me. The compilation process completes successfully without any errors. The run process completes successfully, without any errors. The exceptions are handled gracefully. The project works as expected, producing expected output.
